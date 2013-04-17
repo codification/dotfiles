@@ -11,3 +11,5 @@
 (dolist (project (directory-files (live-pack-lib-dir) t "\\w+"))
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
+
+(require 'expand-region)
