@@ -5,3 +5,7 @@
 ;;(define-key global-map (kbd "C--") 'text-scale-decrease)
 (define-key global-map (kbd "C-c C-s") 'surround-with)
 (define-key global-map (kbd "C-'") 'er/expand-region)
+
+;; From magnars
+(global-set-key (kbd "<C-return>") 'open-line-below)
+(global-set-key (kbd "<C-S-return>") 'open-line-above)

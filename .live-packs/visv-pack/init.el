@@ -3,8 +3,13 @@
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
 
-;; Load bindings config
+(cua-mode -1)
+
+
+;; Various defuns
 (live-load-config-file "my-own.el")
+(live-load-config-file "magnars-defuns.el")
+;; Load bindings config
 (live-load-config-file "bindings.el")
 
 ;; No tabs, just spaces
