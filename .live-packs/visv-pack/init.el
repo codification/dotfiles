@@ -7,8 +7,7 @@
 (live-load-config-file "my-own.el")
 (live-load-config-file "bindings.el")
 
-;; (when (window-system)
-;;   (set-face-attribute 'default nil :font "Anonymous Pro" :height 140)
-;;   ;;(add-to-list 'default-frame-alist '(font . "Anonymous Pro 14"))
-;;   )
-;;
+;; Add external projects under /lib to load path
+(dolist (project (directory-files (live-pack-lib-dir) t "\\w+"))
+  (when (file-directory-p project)
+    (add-to-list 'load-path project)))
