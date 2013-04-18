@@ -7,8 +7,8 @@
 
 
 ;; Various defuns
-(live-load-config-file "my-own.el")
 (live-load-config-file "magnars-defuns.el")
+(live-load-config-file "my-own.el")
 ;; Load bindings config
 (live-load-config-file "bindings.el")
 
