@@ -1,3 +1,4 @@
+;;; Open-line
 (defun open-line-below ()
   (interactive)
   (end-of-line)
@@ -11,6 +12,7 @@
   (forward-line -1)
   (indent-for-tab-command))
 
+;;; cleanup-buffer
 (defun untabify-buffer ()
   (interactive)
   (untabify (point-min) (point-max)))
@@ -37,3 +39,25 @@ Including indent-buffer, which should not be called automatically on save."
 
 (defadvice sgml-delete-tag (after reindent-buffer activate)
   (cleanup-buffer))
+
+;;; javascript snippet help
+
+(defun js-method-p ()
+  (save-excursion
+    (word-search-backward "function")
+    (looking-back ": ")))
+
+(defun js-function-declaration-p ()
+  (save-excursion
+    (word-search-backward "function")
+    (looking-back "^\\s *")))
+
+(defun snippet--function-punctuation ()
+  (if (js-method-p)
+      (when (not (looking-at "[ \n\t\r]*}"))
+        (insert ","))
+    (unless (js-function-declaration-p)
+      (if (looking-at "$") (insert ";")))))
+
+(defun snippet--function-name ()
+  (if (js-function-declaration-p) "name" ""))
