@@ -27,3 +27,20 @@
           (end-tag (format "</%s>" tag)))
       (insert-around start start-tag
                      end end-tag))))
+
+(defun count-lines-between (start end)
+  (- (count-lines start end) 1))
+
+(defun start-of-line-p (pos)
+  (/= (line-number-at-pos pos)
+      (line-number-at-pos (- pos 1))))
+
+(defun is-multiline-region ()
+  (interactive)
+  (message "Multiline: %s"
+           (when (and (region-active-p)
+                      (count-lines-between (region-beginning) (region-end)))
+             (destructuring-bind (start end) (define-area)
+               (when (and (start-of-line-p start)
+                          (start-of-line-p end))
+                 t)))))
