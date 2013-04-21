@@ -61,7 +61,10 @@ set diffopt+=iwhite
 filetype plugin indent on
 
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
-call pathogen#infect()
+execute pathogen#incubate('bundles/always/{}')
+if has('python')
+    execute pathogen#incubate('bundles/python/{}')
+endif
 call pathogen#helptags()
 
 " From http://tottinge.blogsome.com/use-vim-like-a-pro/my-vimrc/
