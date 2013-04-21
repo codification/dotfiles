@@ -1,6 +1,3 @@
-[submodule ".live-packs/visv-pack/lib/expand-region"]
-	path = .live-packs/visv-pack/lib/expand-region
-	url = git@github.com:magnars/expand-region.el.git
 [submodule ".vim/bundle/vim-fugitive"]
 	path = .vim/bundle/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
