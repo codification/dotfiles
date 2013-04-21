@@ -12,3 +12,9 @@
 
 ;; Hippie expand
 (global-set-key (kbd "M-/") 'hippie-expand)
+
+;; Mac Cmd-key handling
+(when (and (window-system)
+           (eq system-type 'darwin))
+  (setq mac-option-modifier 'nil)
+  (setq mac-command-modifier 'meta))
