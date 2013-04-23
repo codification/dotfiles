@@ -44,8 +44,9 @@
 ;; Quicklisp and sbcl - for now commented out since
 ;; My gentoo workstation has problems installing sbcl
 
-;; (load (expand-file-name "~/quicklisp/slime-helper.el"))
-;; (setq inferior-lisp-program "/usr/local/bin/sbcl")
+(when (boundp 'common-lisp)
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
 ;; Stolen from
 ;; https://github.com/benzitohhh/.live-packs/blob/master/immanuel_ben-pack/init.el
