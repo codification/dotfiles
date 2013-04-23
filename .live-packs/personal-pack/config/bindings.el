@@ -9,3 +9,12 @@
 ;; From magnars
 (global-set-key (kbd "<C-return>") 'open-line-below)
 (global-set-key (kbd "<C-S-return>") 'open-line-above)
+
+;; Hippie expand
+(global-set-key (kbd "M-/") 'hippie-expand)
+
+;; Mac Cmd-key handling
+(when (and (window-system)
+           (eq system-type 'darwin))
+  (setq mac-option-modifier 'nil)
+  (setq mac-command-modifier 'meta))

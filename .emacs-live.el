@@ -1,1 +1,1 @@
-(live-add-packs '(~/.live-packs/visv-pack))
+(live-add-packs '(~/.live-packs/personal-pack))

@@ -1,3 +1,12 @@
-[submodule ".live-packs/visv-pack/lib/expand-region"]
-	path = .live-packs/visv-pack/lib/expand-region
+[submodule ".live-packs/personal-pack/lib/expand-region"]
+	path = .live-packs/personal-pack/lib/expand-region
 	url = git@github.com:magnars/expand-region.el.git
+[submodule ".vim/bundles/always/vim-fugitive"]
+	path = .vim/bundles/always/vim-fugitive
+	url = git://github.com/tpope/vim-fugitive.git
+[submodule ".vim/bundles/always/vim-surround"]
+	path = .vim/bundles/always/vim-surround
+	url = git://github.com/tpope/vim-surround.git
+[submodule ".vim/bundles/python/jedi-vim"]
+	path = .vim/bundles/python/jedi-vim
+	url = git@github.com:davidhalter/jedi-vim.git
