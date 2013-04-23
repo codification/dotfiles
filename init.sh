@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z $1 ]
+then
+    arg="link"
+else
+    arg=$1
+fi
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -7,18 +13,22 @@ while read subdir;
 do
     SOURCE="$DIR/$subdir"
     TARGET="$HOME/$subdir"
-    echo "Linking subdir: $SOURCE to $TARGET"
-    if [ -e $TARGET ]
+    
+    if [ $arg == "link" ]
     then
-        echo "  >> Skipping $TARGET as it already exists"
-    else
-        ln -s $SOURCE $TARGET
+        echo "Linking subdir: $SOURCE to $TARGET"
+        if [ -e $TARGET ]
+        then
+            echo "  >> Skipping $TARGET as it already exists"
+        else
+            ln -s $SOURCE $TARGET
+        fi
+    elif [ $arg == "purge" ]
+    then
+        echo "Unlinking dotfile link: $TARGET"
+        unlink $TARGET
     fi
+    
 
-done << EOF
-.live-packs
-.emacs-live.el
-.vim
-.vimrc
-EOF
+done <$DIR/links.txt
 
