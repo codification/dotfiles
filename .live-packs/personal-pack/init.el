@@ -1,10 +1,11 @@
-;; User pack init file
+1;; User pack init file
 ;;
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
 ;; Various defuns
 (live-load-config-file "magnars-defuns.el")
 (live-load-config-file "my-own.el")
+(live-load-config-file "groovy-conf.el")
 ;; Load bindings config
 (live-load-config-file "bindings.el")
 
@@ -41,9 +42,12 @@
 (font-lock-add-keywords 'lisp-mode
                         '(("(\\|)" . 'esk-paren-face)))
 
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
-;; Replace "sbcl" with the path to your implementation
-(setq inferior-lisp-program "/usr/local/bin/sbcl")
+;; Quicklisp and sbcl - for now commented out since
+;; My gentoo workstation has problems installing sbcl
+
+(when (boundp 'common-lisp)
+  (load (expand-file-name "~/quicklisp/slime-helper.el"))
+  (setq inferior-lisp-program "/usr/local/bin/sbcl"))
 
 ;; Stolen from
 ;; https://github.com/benzitohhh/.live-packs/blob/master/immanuel_ben-pack/init.el

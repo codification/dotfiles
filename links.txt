@@ -1,0 +1,4 @@
+.live-packs
+.emacs-live.el
+.vim
+.vimrc
