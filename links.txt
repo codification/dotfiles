@@ -2,3 +2,4 @@
 .emacs-live.el
 .vim
 .vimrc
+.tmux.conf
