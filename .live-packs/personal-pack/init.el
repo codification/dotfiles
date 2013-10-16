@@ -21,6 +21,7 @@
           (lambda()
             (setq sgml-basic-offset 4)
             (setq indent-tabs-mode nil)))
+(add-hook 'html-mode-hook 'turn-on-orgtbl)
 
 ;; Add external projects under /lib to load path
 (dolist (project (directory-files (live-pack-lib-dir) t "\\w+"))
@@ -71,3 +72,16 @@
     (lambda () (interactive) (find-alternate-file "..")))
   ; was dired-up-directory
  ))
+
+
+;; Taken here: http://stackoverflow.com/questions/913449/changing-paredit-formatting
+;; Removes paredits preference for inserting a space before parens
+;; Should probably be a defadvice and only turned on outside LISPs
+(defun paredit-space-for-delimiter-p (endp delimiter)
+  (and (not (if endp (eobp) (bobp)))
+       (memq (char-syntax (if endp (char-after) (char-before)))
+             (list ?\"  ;; REMOVED ?w ?_
+                   (let ((matching (matching-paren delimiter)))
+                     (and matching (char-syntax matching)))))))
+
+;(require 'ox-reveal)
