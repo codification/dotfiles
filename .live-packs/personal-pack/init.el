@@ -3,11 +3,14 @@
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
 ;; Various defuns
+(package-initialize)
 (live-load-config-file "magnars-defuns.el")
 (live-load-config-file "my-own.el")
 (live-load-config-file "groovy-conf.el")
 ;; Load bindings config
 (live-load-config-file "bindings.el")
+
+(live-load-config-file "ox-reveal.el")
 
 (cua-mode -1)
 

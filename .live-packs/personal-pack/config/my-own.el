@@ -44,3 +44,5 @@
                (when (and (start-of-line-p start)
                           (start-of-line-p end))
                  t)))))
+
+(live-load-config-file "ox-reveal.el")
