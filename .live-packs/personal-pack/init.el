@@ -1,8 +1,13 @@
-1;; User pack init file
+;; User pack init file
 ;;
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
 ;; Various defuns
+(add-to-list 'package-archives
+             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.org/packages/") t)
+(package-initialize)
 (live-load-config-file "magnars-defuns.el")
 (live-load-config-file "my-own.el")
 (live-load-config-file "groovy-conf.el")
@@ -10,6 +15,8 @@
 (live-load-config-file "bindings.el")
 
 (cua-mode -1)
+(tool-bar-mode -1)
+(menu-bar-mode -1)
 
 ;; No tabs, just spaces
 (setq-default indent-tabs-mode nil)
@@ -29,10 +36,13 @@
     (add-to-list 'load-path project)))
 
 (require 'expand-region)
+(require 'virtualenvwrapper)
+(venv-initialize-interactive-shells) ;; if you want interactive shell support
+(venv-initialize-eshell) ;; if you want eshell support
+(setq venv-location "/Users/ville/.virtualenvs")
 
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/") t)
+
 
 ;;
 ;; Common LISP stuff, according to starter-kit-lisp
@@ -84,4 +94,16 @@
                    (let ((matching (matching-paren delimiter)))
                      (and matching (char-syntax matching)))))))
 
-;(require 'ox-reveal)
+(require 'ox-reveal)
+
+(when (eq system-type 'darwin)
+  ;; default Latin font (e.g. Consolas)
+  (set-face-attribute 'default nil :family "Anonymous Pro")
+  ;; default font size (point * 10)
+  ;;
+  ;; WARNING!  Depending on the default font,
+  ;; if the size is not supported very well, the frame will be clipped
+  ;; so that the beginning of the buffer may not be visible correctly.
+  (set-face-attribute 'default nil :height 145)
+  ;; you may want to add different for other charset in this way.
+  )
