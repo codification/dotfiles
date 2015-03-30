@@ -1,4 +1,4 @@
-1;; User pack init file
+;; User pack init file
 ;;
 ;; User this file to initiate the pack configuration.
 ;; See README for more information.
@@ -8,7 +8,8 @@
 (live-load-config-file "groovy-conf.el")
 ;; Load bindings config
 (live-load-config-file "bindings.el")
-
+(live-add-pack-lib "org-reveal")
+(require 'ox-reveal)
 (cua-mode -1)
 
 ;; No tabs, just spaces
@@ -73,7 +74,16 @@
  ))
 
 ;; Temp files
-(setq backup-directory-alist
-      `((".*" . ,temporary-file-directory)))
-(setq auto-save-file-name-transforms
-      `((".*" ,temporary-file-directory t)))
+;; (setq backup-directory-alist
+;;       `((".*" . ,temporary-file-directory)))
+;; (setq auto-save-file-name-transforms
+;;       `((".*" ,temporary-file-directory t)))
+;;
+(set-face-attribute 'default (selected-frame)
+                    :height 110)
+
+(setq make-backup-files nil)
+
+(custom-set-variables
+ '(js2-basic-offset 2)
+ '(js2-bounce-indent-p t))
