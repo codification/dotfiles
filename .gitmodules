@@ -10,6 +10,3 @@
 [submodule ".vim/bundles/python/jedi-vim"]
 	path = .vim/bundles/python/jedi-vim
 	url = git@github.com:davidhalter/jedi-vim.git
-[submodule ".live-packs/personal-pack/lib/Emacs-Groovy-Mode"]
-	path = .live-packs/personal-pack/lib/Emacs-Groovy-Mode
-	url = git@github.com:russel/Emacs-Groovy-Mode.git
