@@ -58,14 +58,14 @@ set nowrap
 "Ignore whitespace in diffs
 set diffopt+=iwhite
 
-filetype plugin indent on
-
+filetype off
 autocmd FileType python set complete+=k~/.vim/syntax/python.vim isk+=.,(
 execute pathogen#incubate('bundles/always/{}')
 if has('python')
     execute pathogen#incubate('bundles/python/{}')
 endif
 call pathogen#helptags()
+filetype plugin indent on
 
 " From http://tottinge.blogsome.com/use-vim-like-a-pro/my-vimrc/
 " Omnicomplete
