@@ -1,6 +1,3 @@
-[submodule ".live-packs/personal-pack/lib/expand-region"]
-	path = .live-packs/personal-pack/lib/expand-region
-	url = git@github.com:magnars/expand-region.el.git
 [submodule ".vim/bundles/always/vim-fugitive"]
 	path = .vim/bundles/always/vim-fugitive
 	url = git://github.com/tpope/vim-fugitive.git
@@ -10,6 +7,3 @@
 [submodule ".vim/bundles/python/jedi-vim"]
 	path = .vim/bundles/python/jedi-vim
 	url = git@github.com:davidhalter/jedi-vim.git
-[submodule ".live-packs/personal-pack/lib/Emacs-Groovy-Mode"]
-	path = .live-packs/personal-pack/lib/Emacs-Groovy-Mode
-	url = git@github.com:russel/Emacs-Groovy-Mode.git
